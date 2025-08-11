@@ -19,6 +19,7 @@ jobs:
           uses: docker/scout-action@v1
           with:
             command: cves
-            image: alpine@latest
+            image: local://alpine@latest
             sarif-file: sarif.output.json
             summary: true
+            write-comment: false
