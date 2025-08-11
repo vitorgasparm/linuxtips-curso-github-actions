@@ -1,7 +1,9 @@
 name: Desafio 1 do curso de Github Actions da LinuxTips
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - desafio-1
 
 jobs:
    desafio_1:
