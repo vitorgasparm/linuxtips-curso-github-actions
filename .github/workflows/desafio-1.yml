@@ -1,16 +1,23 @@
 name: Desafio 1 do curso de Github Actions da LinuxTips
 
 on:
-  push:
-    branches:
-      - desafio-1
+  workflow_dispatch:
+        
+   inputs:
+    docker-image:
+       description: 'Docker image to pull'
+       required: true
+       default: 'alpine:latest'
 
 jobs:
-   desafio_1:
+   pipeline-seguranca:
       runs-on: ubuntu-latest
       steps:
-        - name: Baixa a imagem docker do Alpine
-          run: docker pull alpine
+        - name: Docker hub login
+          run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PAT }}
+
+        - name: Baixa a imagem docker do Input
+          run: docker pull ${{ github.event.inputs.docker-image }}
         
         - name: Lista as imagens Docker que foram baixadas
           run: docker image ls
@@ -19,7 +26,7 @@ jobs:
           uses: docker/scout-action@v1
           with:
             command: cves
-            image: local://alpine@latest
+            image: ${{ github.event.inputs.docker-image }}
             sarif-file: sarif.output.json
             summary: true
             write-comment: false
