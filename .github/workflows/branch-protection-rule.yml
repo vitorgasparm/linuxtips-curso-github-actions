@@ -1,0 +1,13 @@
+name: Testando o trigger branch protection rule
+
+on:
+  branch_protection_rule:
+    types: [created, edited, deleted]
+
+jobs:
+    print-modification:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Aviso sobre a modificação
+              run: echo "Uma regra de branch protection foi criada, editada ou deletada"
