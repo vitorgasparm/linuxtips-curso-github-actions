@@ -1,0 +1,12 @@
+name: Testando o trigger discussion
+
+on:
+    discussion:
+      types: [created, edited, answered]
+
+jobs:
+    trigger-discussion:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Printa discussion
+              run: echo "Esse trigger foi iniciado através de uma discussão criada/editada/respondida"
