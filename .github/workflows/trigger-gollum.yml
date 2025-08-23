@@ -1,7 +1,7 @@
 name: Testando a trigger gollum 
 
 on:
-    gollum
+  gollum
 
 jobs:
     trigger-gollum:
