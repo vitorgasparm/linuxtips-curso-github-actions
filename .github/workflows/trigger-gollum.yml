@@ -1,0 +1,11 @@
+name: Testando a trigger gollum 
+
+on:
+    gollum
+
+jobs:
+    trigger-gollum:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print gollum 
+              run: echo "Trigger iniciado através da Wiki!"
