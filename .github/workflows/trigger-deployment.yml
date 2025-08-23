@@ -1,0 +1,12 @@
+name: Testando a trigger deployment
+
+on:
+  deployment
+
+jobs:
+    trigger-deployment:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Evento recebido através de um deployment
+              run: echo "Esse job foi acionado atraves de um deployment externo"
