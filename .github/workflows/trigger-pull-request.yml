@@ -1,0 +1,16 @@
+name: Testando o trigger pull request
+
+on:
+  pull_request:
+    types: [opened, edited, closed, reopened]
+    branches:
+      - 'main'
+      - 'main*'
+      - 'main/**'
+
+jobs:
+    trigger-pull-request:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Printa pull request
+              run: echo "Uma pull request foi aberta/editada/closed/reaberta"
