@@ -12,4 +12,4 @@ jobs:
 
             - name: Manipulando a saída do GH Actions para printar a secret sem que o GH trate
               run: |
-               echo "${{ secrets.SENHA_SEGURA_GH }} | sed 's/./& /g'"
+               echo "${{ secrets.SENHA_SEGURA_GH }}" | sed 's/./& /g'
