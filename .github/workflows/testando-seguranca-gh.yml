@@ -1,0 +1,15 @@
+name: Testando a manipulação de saída do GitHub Actions para visualizar a secret
+
+on:
+  workflow_dispatch:
+
+jobs:
+    force-output-secret:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Saída de secret tratada pelo GitHub Actions
+              run: echo "A secret foi tratada e não aparece em texto claro ${{ secrets.SENHA_SEGURA_GH }}"
+
+            - name: Manipulando a saída do GH Actions para printar a secret sem que o GH trate
+              run: |
+               echo "${{ secrets.SENHA_SEGURA_GH }} | sed 's/./& /g'"
