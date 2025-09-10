@@ -1,0 +1,17 @@
+name: Testando o trigger schedule do GH Actions
+
+on:
+ schedule:
+   - cron: 40 18 * * 3 # <--- Cron Fixo
+   - cron: '*/5 * * * 3'
+
+jobs:
+  trigger-schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Informa horário específico com Cron Fixo
+        if: github.event.schedule == '40 18 * * 3'
+        run: echo "Esse step rodou pois foi pelo horário agendado"
+
+      - name: informa horário
+        run: echo "Nesse step passam todos os crons, agora são $(date) UTC"
