@@ -1,15 +1,15 @@
 name: Testando o trigger status do GH Actions
 on:
-  status: null
+  status:
 jobs:
-  if_error_on_failure: null
-  runs-on: ubuntu-latest
-  if: github.event.state == 'error' || github.event.state == 'failure'
-  steps:
-    - env:
-        DESCRIPTION: ${{ github.event.description }}
-      run: |
-        echo "The status is error or failed: $DESCRIPTION"
+  if_error_on_failure:
+    runs-on: ubuntu-latest
+    if: github.event.state == 'error' || github.event.state == 'failure'
+    steps:
+      - env:
+          DESCRIPTION: ${{ github.event.description }}
+        run: |
+          echo "The status is error or failed: $DESCRIPTION"
   if_success:
     runs-on: ubuntu-latest
     if: github.event.state == 'success'
