@@ -2,11 +2,11 @@ name: Chamando outro workflow
 
 on:
   workflow_dispatch: 
-  inputs:
-    nome-do-curso-recebido:
-      description: Nome do curso a ser informado
-      required: true
-      type: string
+    inputs:
+      nome-do-curso-recebido:
+        description: Nome do curso a ser informado
+        required: true
+        type: string
 
 jobs:
   workflow-caller:
