@@ -11,3 +11,5 @@ on:
 jobs:
   workflow-caller:
     uses: ./.github/workflows/trigger-workflow-call.yml
+    with:
+       nome-do-curso-recebido: ${{ github.event.inputs.nome-do-curso-recebido }}
