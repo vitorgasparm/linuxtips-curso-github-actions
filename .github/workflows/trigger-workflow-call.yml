@@ -1,12 +1,15 @@
-name: Testando a trigger Workflow Call
+name: Workflow Compartilhado
 
 on:
   workflow_call:
+    inputs:
+      nome-do-curso-recebido:
+        required: true
+        type: string
 
 jobs:
-  trigger-workflow-call:
+  fala-o-nome-do-curso:
     runs-on: ubuntu-latest
     steps:
-      - name: Print workflow_call
-        run: |
-          echo "Esse workflow foi chamado através de outro workflow"
+      - name: Informa o nome do curso
+        run: echo "O nome do seu curso é ${{ inputs.nome-do-curso-recebido }}"
