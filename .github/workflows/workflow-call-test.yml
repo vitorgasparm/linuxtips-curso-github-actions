@@ -1,0 +1,9 @@
+name: Chamando outro workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+   workflow-caller:
+     runs-on: ubuntu-latest
+     uses: ./.github/workflows/trigger-workflow-call.yml

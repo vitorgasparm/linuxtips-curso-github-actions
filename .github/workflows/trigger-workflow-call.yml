@@ -1,0 +1,12 @@
+name: Testando a trigger Workflow Call
+
+on:
+  workflow_call:
+
+jobs:
+  trigger-workflow-call:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Print workflow_call
+      run: | 
+       echo "Esse workflow foi chamado através de outro workflow"
