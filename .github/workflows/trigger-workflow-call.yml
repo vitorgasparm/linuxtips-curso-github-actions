@@ -5,8 +5,8 @@ on:
 
 jobs:
   trigger-workflow-call:
-   runs-on: ubuntu-latest
-   steps:
-    - name: Print workflow_call
-      run: | 
-       echo "Esse workflow foi chamado através de outro workflow"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print workflow_call
+        run: |
+          echo "Esse workflow foi chamado através de outro workflow"
